@@ -1,0 +1,6 @@
+fastjsonschema 
+flask
+pika
+requests
+pymongo
+flask_cors
