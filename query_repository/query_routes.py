@@ -43,3 +43,9 @@ def returnEventsByType(eventType):
 def event_repository_stats():
     event_records = query_interface.return_event_stats()
     return jsonify(event_records), 200
+
+#Returns EPCIS event(s) related to the given disposition.
+@query_blueprints.route('/dispositions/<disposition>',methods=['GET'])
+def returnEvents(disposition):
+    result =  query_interface.returnAllEventstype(disposition)
+    return jsonify(result), 200

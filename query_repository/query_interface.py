@@ -91,6 +91,20 @@ def returnAllEventstype(eventType):
         "queryResults": {"resultsBody": {"eventList": arr}}}
     return formatted_output
 
+
+#Returns EPCIS event(s) related to the given disposition.
+def returnAllEventstype(disposition):
+    exp = {"dispositions":disposition}
+    ls = dao.find(config.mongo_epcis_eventsdata,exp)
+    arr = []
+    for elem in ls:
+        arr.append(elem)
+    
+    formatted_output = formatOutputBody()
+    formatted_output["epcisBody"] = {
+        "queryResults": {"resultsBody": {"eventList": arr}}}
+    return formatted_output
+
 # Module to convert request params for EQ,GT,GE,LE,LT operators into MongoDb filter expression
 
 
